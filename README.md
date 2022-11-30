@@ -110,7 +110,7 @@ Per-class AP can be found under ./aps.txt and per-example results is inf_output.
 Please contact Bernie Huang (berniehuang@meta.com) if you have any questions. Thank you.
 
 ### Reference
-The codebase is based on the awesome [MAE[(https://github.com/facebookresearch/mae) and [AST](https://github.com/YuanGongND/ast) repos.
+The codebase is based on the awesome [MAE](https://github.com/facebookresearch/mae) and [AST](https://github.com/YuanGongND/ast) repos.
 
 ### License
 This project is under the CC-BY 4.0 license. See [LICENSE](LICENSE) for details.
