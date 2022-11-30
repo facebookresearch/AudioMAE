@@ -3,21 +3,17 @@
 
 This repo hosts the code and models of "[Masked Autoencoders that Listen](http://arxiv.org/abs/2207.06405)" [NeurIPS 2022 [bib](https://github.com/facebookresearch/AudioMAE#citation)]**.
 
-### Introduction
 
 <p align="center">
   <img align="middle" width="800" src="assets/model.png"/>
 </p>
-
-We present Audio Masked Autoencoder (Audio-MAE) for self-supervised representation learning from audio spectrograms. Following the Transformer encoder-decoder design in MAE, our Audio-MAE first encodes audio spectrogram patches with a high masking ratio, feeding only
-the non-masked tokens through encoder layers. The decoder then re-orders and decodes the encoded context padded with mask tokens, in order to reconstruct the input spectrogram. We find it beneficial to incorporate local window attention in the decoder, as audio spectrograms are highly correlated in local time and frequency bands. We then fine-tune the encoder with a lower masking ratio on target datasets. Empirically, Audio-MAE sets new state-of-the-art performance on six audio and speech classification tasks, outperforming other recent models
-that use external supervised pre-training.
 
 
 ### Demo Examples
 <p align="center">
   <img align="middle" width="800" src="assets/mae.png"/>
 </p>
+
 [Music](https://www.dropbox.com/s/96v5et19521hlau/Fig6_b.mp4?dl=0), [Speech](https://www.dropbox.com/s/tyzjc9sk6wch1zk/Fig6_a.mp4?dl=0), [Event Sound](https://www.dropbox.com/s/rgmqgulnl1l9mu2/Fig6_c.mp4?dl=0)
 
 
@@ -97,17 +93,19 @@ per-class AP can be found under ./aps.txt and per-example results is inf_output.
 
 ## Updates
 - [x] Code and Model Release
-- [] Provide conda-pack envs
-- [] Notebook Demos
-- [] Additional Exps
+- [ ] Provide conda-pack envs
+- [ ] Notebook Demos
+- [ ] Additional Exps
 
 ## Citation
-@inproceedings{huang,
-  title = {huang2022amae},
+'''
+@inproceedings{huang2022amae,
+  title = {Masked Autoencoders that Listen},
   author = {Huang, Po-Yao and Xu, Hu and Li, Juncheng and Baevski, Alexei and Auli, Michael and Galuba, Wojciech and Metze, Florian and Feichtenhofer, Christoph}
   booktitle = {NeurIPS},
   year = {2022}
 }
+'''
 
 ### Reference
 The codebase is based on the awesome [MAE[(https://github.com/facebookresearch/mae) and [AST](https://github.com/YuanGongND/ast) repos.
