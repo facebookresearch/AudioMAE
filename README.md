@@ -17,20 +17,20 @@ This repo hosts the code and models of "[Masked Autoencoders that Listen](http:/
 [Music](https://www.dropbox.com/s/96v5et19521hlau/Fig6_b.mp4?dl=0), [Speech](https://www.dropbox.com/s/tyzjc9sk6wch1zk/Fig6_a.mp4?dl=0), [Event Sound](https://www.dropbox.com/s/rgmqgulnl1l9mu2/Fig6_c.mp4?dl=0)
 
 
-### Installation
+### 1. Installation
 - This repo follows the [MAE repo](https://github.com/facebookresearch/mae), Installation and preparation follow that repo.
 - Copy files and patch the timm package by ``bash timm_patch.sh'' (Please change the path to your own timm package path). We use timm==0.3.2, for which a [fix](https://github.com/rwightman/pytorch-image-models/issues/420#issuecomment-776459842) is needed to work with PyTorch 1.8.1+.
 - Please find[mae_env.yml](./mae_env.yml) for all the dependencies.
 
-### 0. Prepare data:
+### 2. Prepare data:
 Please try to download AudioSet [here](https://research.google.com/audioset/). Due to copyright we cannot release the data. The data annotation json parased and used in this work is available [here](https://drive.google.com/file/d/1nr1zs7uhL0By-yI9UPMMXCORK0PeUMYi/view?usp=share_link). The format follows the one in [AST](https://github.com/YuanGongND/ast). Please be sure to modify the path in the scripts accordingly to reflect your own setup.
 
-### 1. Pretrianing on AudioSet-2M
+### 3. Pretrianing on AudioSet-2M
 For the brave ones to pre-train on AudioSet-2M: Please use the pretrain_audioset2M.sh by:
 ```
 bash pretrain_audioset2M.sh
 ```
-### 2. Fine-tuning on AudioSet-2M and AudioSet-20K
+### 4. Fine-tuning on AudioSet-2M and AudioSet-20K
 For Finetuning from an AuioSet-pretrained model. Please use your own pretrained model from the previous step or download our pre-trained [ckpt](https://drive.google.com/file/d/1rRsmU8x7D-x4BvcPyroUJwU18eixNfKg/view?usp=sharing) and put it under ./ckpt. Please use the script submit_ft_mask_bal.sh by 
 ```
 bash submit_ft_mask_bal.sh 2e-4 0.2 0.2 ./ckpt/pretrained.pth"
@@ -66,9 +66,8 @@ The log.txt will look like:
 ```
 The peformance on AudioSet-20K is around 37.0 mAP. 
 
-
-### 3. Inference
-Please download the finetuned [ckpt](https://drive.google.com/file/d/1dacJa-XcaoLPZf--mLvzSdlzo5iMX2ST/view?usp=share_link) and put it under the ckpt folder. Then:
+### 5. Inference 
+For inference the finetuned model. Please put your finetuned model under ./ckpt, or please download our finetuned [ckpt](https://drive.google.com/file/d/1dacJa-XcaoLPZf--mLvzSdlzo5iMX2ST/view?usp=share_link). Then:
 ```
 bash inf.sh ckpt/finetuned.pth
 ```
@@ -91,13 +90,13 @@ This should give you 47.3 mAP on AudioSet. An example log is as follows:
 ```
 Per-class AP can be found under ./aps.txt and per-example results is inf_output.npy
 
-## Updates
+### Updates
 - [x] Code and Model Release
 - [ ] Provide conda-pack envs
 - [ ] Notebook Demos
 - [ ] Additional Exps
 
-## Citation
+### Citation
 ```
 @inproceedings{huang2022amae,
   title = {Masked Autoencoders that Listen},
@@ -115,5 +114,3 @@ The codebase is based on the awesome [MAE[(https://github.com/facebookresearch/m
 
 ### License
 This project is under the CC-BY 4.0 license. See [LICENSE](LICENSE) for details.
-
-
