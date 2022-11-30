@@ -1,7 +1,7 @@
 # Audio-MAE
 
 
-This repo hosts the code and models of "[Masked Autoencoders that Listen](http://arxiv.org/abs/2207.06405)" [NeurIPS 2022 [bib](https://github.com/facebookresearch/AudioMAE#citation)]**.
+This repo hosts the code and models of "[Masked Autoencoders that Listen](http://arxiv.org/abs/2207.06405)" [NeurIPS 2022 [bib](https://github.com/facebookresearch/AudioMAE#citation)].
 
 
 <p align="center">
@@ -98,14 +98,14 @@ per-class AP can be found under ./aps.txt and per-example results is inf_output.
 - [ ] Additional Exps
 
 ## Citation
-'''
+```
 @inproceedings{huang2022amae,
   title = {Masked Autoencoders that Listen},
   author = {Huang, Po-Yao and Xu, Hu and Li, Juncheng and Baevski, Alexei and Auli, Michael and Galuba, Wojciech and Metze, Florian and Feichtenhofer, Christoph}
   booktitle = {NeurIPS},
   year = {2022}
 }
-'''
+```
 
 ### Reference
 The codebase is based on the awesome [MAE[(https://github.com/facebookresearch/mae) and [AST](https://github.com/YuanGongND/ast) repos.
