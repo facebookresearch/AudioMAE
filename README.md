@@ -21,9 +21,13 @@ This repo hosts the code and models of "[Masked Autoencoders that Listen](http:/
 - This repo follows the [MAE repo](https://github.com/facebookresearch/mae), Installation and preparation follow that repo.
 - Copy files and patch the timm package by ``bash timm_patch.sh'' (Please change the path to your own timm package path). We use timm==0.3.2, for which a [fix](https://github.com/rwightman/pytorch-image-models/issues/420#issuecomment-776459842) is needed to work with PyTorch 1.8.1+.
 - Please find [mae_env.yml](./mae_env.yml) for all the dependencies.
+- You may also use download the conda-packed [conda env](https://drive.google.com/file/d/1ECVmVyscVqmhI7OQa0nghIsWVaZhZx3q/view?usp=sharing), untar it, and then:
+```
+source path_to_env/bin/activate
+```
 
 ### 2. Prepare data:
-Please try to download AudioSet [here](https://research.google.com/audioset/). Due to copyright we cannot release the data. The data annotation json parased and used in this work is available [here](https://drive.google.com/file/d/1nr1zs7uhL0By-yI9UPMMXCORK0PeUMYi/view?usp=share_link). The format follows the one in [AST](https://github.com/YuanGongND/ast). Please be sure to modify the path in the scripts accordingly to reflect your own setup.
+Please try to download AudioSet [here](https://research.google.com/audioset/). Due to copyright we cannot release the data. The data annotation json parased and used in this work is available [here](https://drive.google.com/file/d/1cAiaL69HFm1zSW4hqFQpdhNfHiVKBFNA/view?usp=share_link). The format follows the one in [AST](https://github.com/YuanGongND/ast). Please be sure to modify the path in the scripts accordingly to reflect your own setup.
 
 ### 3. Pretrianing on AudioSet-2M
 For the brave ones to pre-train on AudioSet-2M: Please use the pretrain_audioset2M.sh by:
@@ -92,7 +96,7 @@ Per-class AP can be found under ./aps.txt and per-example results is inf_output.
 
 ### Updates
 - [x] Code and Model Release
-- [ ] Provide conda-pack envs
+- [x] Provide conda-pack envs
 - [ ] Notebook Demos
 - [ ] Additional Exps
 
