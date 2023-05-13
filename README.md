@@ -27,7 +27,7 @@ source path_to_env/bin/activate
 ```
 
 ### 2. Prepare data:
-Please try to download AudioSet [here](https://research.google.com/audioset/). Due to copyright we cannot release the data. The data annotation json parased and used in this work is available [here](https://drive.google.com/file/d/1cAiaL69HFm1zSW4hqFQpdhNfHiVKBFNA/view?usp=share_link). The format follows the one in [AST](https://github.com/YuanGongND/ast). Please be sure to modify the path in the scripts accordingly to reflect your own setup.
+Please download AudioSet at [here](https://research.google.com/audioset/). Due to copyright we cannot release the data. The data annotation json parased and used in this work is available [here](https://drive.google.com/file/d/1cAiaL69HFm1zSW4hqFQpdhNfHiVKBFNA/view?usp=share_link). The format follows the one in [AST](https://github.com/YuanGongND/ast). Please be sure to modify the path in the scripts accordingly to reflect your own setup.
 
 ### 3. Pretrianing on AudioSet-2M
 For the brave ones to pre-train on AudioSet-2M: Please use the pretrain_audioset2M.sh by:
@@ -35,11 +35,11 @@ For the brave ones to pre-train on AudioSet-2M: Please use the pretrain_audioset
 bash pretrain_audioset2M.sh
 ```
 ### 4. Fine-tuning on AudioSet-2M and AudioSet-20K
-For Finetuning from an AuioSet-pretrained model. Please use your own pretrained model from the previous step or download our pre-trained [ckpt](https://drive.google.com/file/d/1rRsmU8x7D-x4BvcPyroUJwU18eixNfKg/view?usp=sharing) and put it under ./ckpt. Please use the script submit_ft_mask_bal.sh by 
+For Finetuning from an AuioSet-pretrained model. Please use your own pretrained model from the previous step or download our pre-trained [ckpt](https://drive.google.com/file/d/1ni_DV4dRf7GxM8k-Eirx71WP9Gg89wwu/view?usp=share_link) and put it under ./ckpt/. Please use the script submit_ft_mask_bal.sh by 
 ```
 bash submit_ft_mask_bal.sh 2e-4 0.2 0.2 ./ckpt/pretrained.pth"
 ```
-This will perform weighted distributed sampling on the unbalanded Audioset to fine-tuned the model with class-balanced data for 100 epochs. The resulting mAP on the AudioSet should be around 47.3. We provide our finetuned checkpoint at [here](https://drive.google.com/file/d/1dacJa-XcaoLPZf--mLvzSdlzo5iMX2ST/view?usp=share_link). An example log of finetuning is as follows:
+This will perform weighted distributed sampling on the unbalanded Audioset to fine-tuned the model with class-balanced data for 100 epochs. The resulting mAP on the AudioSet should be around 47.3. We provide our finetuned checkpoint at [here](https://drive.google.com/file/d/18EsFOyZYvBYHkJ7_n7JFFWbj6crz01gq/view?usp=share_link). An example log of finetuning is as follows:
 ```
 [07:10:32.717347] log_dir: /checkpoint/berniehuang/experiments/419909
 [07:10:36.394431] Epoch: [99]  [  0/781]  eta: 0:47:51  lr: 0.000001  loss: 0.0066 (0.0066)  time: 3.6761  data: 1.6724  max mem: 2606
@@ -71,7 +71,7 @@ The log.txt will look like:
 The peformance on AudioSet-20K is around 37.0 mAP. 
 
 ### 5. Inference 
-For inference the finetuned model. Please put your finetuned model under ./ckpt, or please download our finetuned [ckpt](https://drive.google.com/file/d/1dacJa-XcaoLPZf--mLvzSdlzo5iMX2ST/view?usp=share_link). Then:
+For inference the finetuned model. Please put your finetuned model under ./ckpt, or please download our finetuned [ckpt](https://drive.google.com/file/d/18EsFOyZYvBYHkJ7_n7JFFWbj6crz01gq/view?usp=share_link). Then:
 ```
 bash inf.sh ckpt/finetuned.pth
 ```
@@ -94,11 +94,16 @@ This should give you 47.3 mAP on AudioSet. An example log is as follows:
 ```
 Per-class AP can be found under ./aps.txt and per-example results is inf_output.npy
 
+
+### Checkpoints:
+1. ViT-B, AS-2M [pretrained](https://drive.google.com/file/d/1ni_DV4dRf7GxM8k-Eirx71WP9Gg89wwu/view?usp=share_link)
+2. ViT-B, AS-2M pretrained+[finetuned](https://drive.google.com/file/d/18EsFOyZYvBYHkJ7_n7JFFWbj6crz01gq/view?usp=share_link)
+
 ### Updates
 - [x] Code and Model Release
 - [x] Provide conda-pack envs
-- [ ] Notebook Demos
-- [ ] Additional Exps
+- [ ] Notebook demos for reconstruction (legal blocked)
+- [ ] Additional exps
 
 ### Citation
 ```
